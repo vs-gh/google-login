@@ -1,6 +1,7 @@
 
 <html>
   <head>
+    <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="170597642847-h8fb81pif3jfaq2jfcqpg10cias95asg.apps.googleusercontent.com">
     
     <script src="https://apis.google.com/js/platform.js" async defer></script>
@@ -9,25 +10,25 @@
   <body>
     <div class="g-signin2" data-onsuccess="onSignIn"></div>
 
-    <div>
-
-    </div Id = "data">
+    <div Id = "data"></div>
+    <div Id = "dummy"></div>
 
     <script>
       
       console.log('Testing 1');
 
       function onSignIn(googleUser) {
-      var profile = googleUser.getBasicProfile();
-      console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-      console.log('Name: ' + profile.getName());
-      console.log('Image URL: ' + profile.getImageUrl());
-      console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+        var profile = googleUser.getBasicProfile();
+        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + profile.getName());
+        // console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 
-      let email = profile.getEmail();
-      document.getElementById('data').innerHTML = email;
-
+        let email = profile.getEmail();
+        document.getElementById('data').innerHTML = email;
     }
+
+    document.getElementById('data').innerHTML = '<p>Testing</p>';
     </script>
   </body>
 </html>
@@ -39,7 +40,7 @@
     <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
   </head>
-  z 
+  
   <body>
     <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
     <script>
